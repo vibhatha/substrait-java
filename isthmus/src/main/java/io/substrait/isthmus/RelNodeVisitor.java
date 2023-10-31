@@ -21,72 +21,158 @@ import org.apache.calcite.rel.core.Values;
 /** A more generic version of RelShuttle that allows an alternative return value. */
 public abstract class RelNodeVisitor<OUTPUT, EXCEPTION extends Throwable> {
 
+  /**
+   * @param scan TableScan object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(TableScan scan) throws EXCEPTION {
     return visitOther(scan);
   }
 
+  /**
+   * @param scan TableFunctionScan object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(TableFunctionScan scan) throws EXCEPTION {
     return visitOther(scan);
   }
 
+  /**
+   * @param values Values object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(Values values) throws EXCEPTION {
     return visitOther(values);
   }
 
+  /**
+   * @param filter
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(Filter filter) throws EXCEPTION {
     return visitOther(filter);
   }
 
+  /**
+   * @param calc Calc object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(Calc calc) throws EXCEPTION {
     return visitOther(calc);
   }
 
+  /**
+   * @param project Project object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(Project project) throws EXCEPTION {
     return visitOther(project);
   }
 
+  /**
+   * @param join Join object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(Join join) throws EXCEPTION {
     return visitOther(join);
   }
 
+  /**
+   * @param correlate Correlate object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(Correlate correlate) throws EXCEPTION {
     return visitOther(correlate);
   }
 
+  /**
+   * @param union Union object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(Union union) throws EXCEPTION {
     return visitOther(union);
   }
 
+  /**
+   * @param intersect Intersect object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(Intersect intersect) throws EXCEPTION {
     return visitOther(intersect);
   }
 
+  /**
+   * @param minus Minus object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(Minus minus) throws EXCEPTION {
     return visitOther(minus);
   }
 
+  /**
+   * @param aggregate Aggregate object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(Aggregate aggregate) throws EXCEPTION {
     return visitOther(aggregate);
   }
 
+  /**
+   * @param match Match object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(Match match) throws EXCEPTION {
     return visitOther(match);
   }
 
+  /**
+   * @param sort Sort object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(Sort sort) throws EXCEPTION {
     return visitOther(sort);
   }
 
+  /**
+   * @param exchange Exchange object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION throws an exception of type EXCEPTION if error occurred
+   */
   public OUTPUT visit(Exchange exchange) throws EXCEPTION {
     return visitOther(exchange);
   }
 
+  /**
+   * @param modify TableModify object to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION
+   */
   public OUTPUT visit(TableModify modify) throws EXCEPTION {
     return visitOther(modify);
   }
 
+  /**
+   * @param other custom RelNode to visit
+   * @return an object of type OUTPUT
+   * @throws EXCEPTION
+   */
   public abstract OUTPUT visitOther(RelNode other) throws EXCEPTION;
 
+  /** A visitor for RelNode. */
   protected RelNodeVisitor() {}
 
   /**

@@ -23,6 +23,7 @@ import org.apache.calcite.rex.RexNode;
 import org.apache.calcite.sql.SqlAggFunction;
 import org.apache.calcite.sql.fun.SqlStdOperatorTable;
 
+/** Function converter for Aggregate operations. */
 public class AggregateFunctionConverter
     extends FunctionConverter<
         SimpleExtension.AggregateFunctionVariant,
@@ -34,11 +35,21 @@ public class AggregateFunctionConverter
     return FunctionMappings.AGGREGATE_SIGS;
   }
 
+  /**
+   * @param functions list of functions to be converted
+   * @param typeFactory data type descriptor
+   */
   public AggregateFunctionConverter(
       List<SimpleExtension.AggregateFunctionVariant> functions, RelDataTypeFactory typeFactory) {
     super(functions, typeFactory);
   }
 
+  /**
+   * @param functions list of functions to be converted
+   * @param additionalSignatures list of FunctionMappings.Sig
+   * @param typeFactory data type descriptor
+   * @param typeConverter type converter
+   */
   public AggregateFunctionConverter(
       List<SimpleExtension.AggregateFunctionVariant> functions,
       List<FunctionMappings.Sig> additionalSignatures,

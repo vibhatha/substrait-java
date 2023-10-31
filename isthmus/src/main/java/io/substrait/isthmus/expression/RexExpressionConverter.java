@@ -46,6 +46,12 @@ public class RexExpressionConverter implements RexVisitor<Expression> {
     this(null, Arrays.asList(callConverters), null, TypeConverter.DEFAULT);
   }
 
+  /**
+   * @param relVisitor SubstraitRelVisitor instance
+   * @param callConverters
+   * @param windowFunctionConverter
+   * @param typeConverter
+   */
   public RexExpressionConverter(
       SubstraitRelVisitor relVisitor,
       List<CallConverter> callConverters,

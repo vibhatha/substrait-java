@@ -1,5 +1,6 @@
 package io.substrait.expression;
 
+/** Base class for Expression visitor. */
 public abstract class AbstractExpressionVisitor<OUTPUT, EXCEPTION extends Exception>
     implements ExpressionVisitor<OUTPUT, EXCEPTION> {
   public abstract OUTPUT visitFallback(Expression expr);
